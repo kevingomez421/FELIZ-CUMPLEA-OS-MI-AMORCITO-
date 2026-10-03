@@ -1,1 +1,435 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi amor ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #02010a;
+    color: white;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* UNIVERSO */
+
+.universo {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 50% 45%, rgba(111, 39, 124, 0.35), transparent 28%),
+        radial-gradient(circle at 20% 20%, rgba(54, 30, 120, 0.3), transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(130, 25, 82, 0.25), transparent 25%),
+        linear-gradient(180deg, #02010a, #080318 50%, #02010a);
+}
+
+/* ESTRELLAS */
+
+.estrellas,
+.estrellas::before,
+.estrellas::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,180,230,.8) 1px, transparent 1px);
+    background-size: 90px 90px, 150px 150px, 210px 210px;
+    background-position: 10px 20px, 50px 80px, 100px 30px;
+    animation: estrellas 12s linear infinite;
+}
+
+.estrellas::before {
+    opacity: .5;
+    transform: scale(1.2);
+    animation-duration: 18s;
+}
+
+.estrellas::after {
+    opacity: .3;
+    transform: scale(1.5);
+    animation-duration: 25s;
+}
+
+@keyframes estrellas {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
+}
+
+/* LUZ CENTRAL */
+
+.luz {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 100, 190, .18),
+        transparent 65%
+    );
+    filter: blur(10px);
+    animation: respirar 5s ease-in-out infinite;
+}
+
+@keyframes respirar {
+    0%, 100% {
+        transform: scale(.9);
+        opacity: .5;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: .9;
+    }
+}
+
+/* CONTENIDO */
+
+.contenido {
+    position: relative;
+    z-index: 10;
+    width: min(90%, 700px);
+    padding: 35px 20px;
+}
+
+.pequeno {
+    font-size: 17px;
+    letter-spacing: 3px;
+    color: #f6c7df;
+    margin-bottom: 25px;
+    animation: aparecer 2s ease forwards;
+}
+
+.titulo {
+    font-size: clamp(42px, 12vw, 85px);
+    line-height: 1;
+    margin-bottom: 25px;
+    color: #fff;
+    text-shadow:
+        0 0 10px rgba(255,255,255,.7),
+        0 0 30px rgba(255,80,170,.7),
+        0 0 60px rgba(180,50,160,.5);
+    animation: titulo 3s ease forwards;
+}
+
+.mensaje {
+    max-width: 600px;
+    margin: auto;
+    font-size: clamp(18px, 4.5vw, 25px);
+    line-height: 1.7;
+    color: #f9e8f3;
+    animation: aparecer 4s ease forwards;
+}
+
+.corazon {
+    display: block;
+    font-size: 42px;
+    margin: 25px 0;
+    animation: latido 1.5s infinite;
+}
+
+.boton {
+    margin-top: 35px;
+    padding: 16px 32px;
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 50px;
+    background: rgba(255, 70, 160, .15);
+    color: white;
+    font-size: 17px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 0 20px rgba(255,70,160,.35),
+        inset 0 0 20px rgba(255,255,255,.05);
+    transition: .4s;
+}
+
+.boton:hover {
+    transform: scale(1.08);
+    background: rgba(255,70,160,.3);
+    box-shadow:
+        0 0 35px rgba(255,70,160,.7);
+}
+
+/* OBJETOS FLOTANTES */
+
+.flotante {
+    position: absolute;
+    z-index: 5;
+    pointer-events: none;
+    animation: flotar 6s ease-in-out infinite;
+}
+
+.rosa {
+    font-size: 45px;
+}
+
+.corazon-flotante {
+    font-size: 25px;
+}
+
+.globo {
+    font-size: 48px;
+}
+
+.flor {
+    font-size: 38px;
+}
+
+.uno {
+    left: 7%;
+    top: 15%;
+    animation-delay: 0s;
+}
+
+.dos {
+    right: 8%;
+    top: 20%;
+    animation-delay: 1s;
+}
+
+.tres {
+    left: 12%;
+    bottom: 20%;
+    animation-delay: 2s;
+}
+
+.cuatro {
+    right: 12%;
+    bottom: 15%;
+    animation-delay: 3s;
+}
+
+.cinco {
+    left: 45%;
+    top: 7%;
+    animation-delay: 4s;
+}
+
+.seis {
+    right: 25%;
+    bottom: 7%;
+    animation-delay: 1.5s;
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(8deg);
+    }
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titulo {
+    from {
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* PÉTALOS */
+
+.petalo {
+    position: fixed;
+    top: -50px;
+    z-index: 20;
+    pointer-events: none;
+    animation: caer linear infinite;
+}
+
+@keyframes caer {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) translateX(120px) rotate(360deg);
+        opacity: .1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .contenido {
+        padding: 25px 15px;
+    }
+
+    .pequeno {
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+
+    .mensaje {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .rosa {
+        font-size: 32px;
+    }
+
+    .globo {
+        font-size: 35px;
+    }
+
+    .flor {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="universo">
+
+    <div class="estrellas"></div>
+    <div class="luz"></div>
+
+    <!-- DECORACIÓN -->
+
+    <div class="flotante rosa uno">🌹</div>
+    <div class="flotante globo dos">🎈</div>
+    <div class="flotante flor tres">🌸</div>
+    <div class="flotante corazon-flotante cuatro">💗</div>
+    <div class="flotante rosa cinco">🌹</div>
+    <div class="flotante flor seis">🌷</div>
+
+    <!-- MENSAJE PRINCIPAL -->
+
+    <div class="contenido">
+
+        <div class="pequeno">
+            PARA LA PERSONA MÁS ESPECIAL ❤️
+        </div>
+
+        <h1 class="titulo">
+            Mi amor
+        </h1>
+
+        <span class="corazon">
+            ❤️
+        </span>
+
+        <p class="mensaje">
+            Hay algo que preparé especialmente para ti...
+            <br><br>
+            Porque hoy no es un día cualquiera.
+            <br><br>
+            Hoy celebramos la vida de la persona
+            que hace mi mundo mucho más bonito.
+        </p>
+
+        <button class="boton" onclick="abrirRegalo()">
+            💌 ABRIR MI REGALO
+        </button>
+
+    </div>
+
+</section>
+
+<script>
+
+function crearPetalo() {
+
+    const petalo = document.createElement("div");
+
+    petalo.className = "petalo";
+
+    const flores = ["🌹", "🌸", "🌺", "🌷", "💗"];
+
+    petalo.innerHTML =
+        flores[Math.floor(Math.random() * flores.length)];
+
+    petalo.style.left =
+        Math.random() * 100 + "vw";
+
+    petalo.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+    petalo.style.animationDuration =
+        (5 + Math.random() * 7) + "s";
+
+    document.body.appendChild(petalo);
+
+    setTimeout(() => {
+        petalo.remove();
+    }, 12000);
+}
+
+setInterval(crearPetalo, 450);
+
+function abrirRegalo() {
+
+    alert("❤️ Mi amor, esto apenas comienza...");
+
+}
+
+</script>
+
+</body>
+</html>
