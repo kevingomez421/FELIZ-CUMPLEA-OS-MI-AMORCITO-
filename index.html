@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,6 +19,7 @@ html, body {
     background: #02010a;
     color: white;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -53,12 +53,15 @@ body {
     inset: 0;
     content: "";
     pointer-events: none;
+
     background-image:
         radial-gradient(circle, white 1px, transparent 1px),
         radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px),
         radial-gradient(circle, rgba(255,180,230,.8) 1px, transparent 1px);
+
     background-size: 90px 90px, 150px 150px, 210px 210px;
     background-position: 10px 20px, 50px 80px, 100px 30px;
+
     animation: estrellas 12s linear infinite;
 }
 
@@ -91,11 +94,14 @@ body {
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(255, 100, 190, .18),
-        transparent 65%
-    );
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 100, 190, .18),
+            transparent 65%
+        );
+
     filter: blur(10px);
     animation: respirar 5s ease-in-out infinite;
 }
@@ -133,20 +139,26 @@ body {
     font-size: clamp(42px, 12vw, 85px);
     line-height: 1;
     margin-bottom: 25px;
+
     color: #fff;
+
     text-shadow:
         0 0 10px rgba(255,255,255,.7),
         0 0 30px rgba(255,80,170,.7),
         0 0 60px rgba(180,50,160,.5);
+
     animation: titulo 3s ease forwards;
 }
 
 .mensaje {
     max-width: 600px;
     margin: auto;
+
     font-size: clamp(18px, 4.5vw, 25px);
     line-height: 1.7;
+
     color: #f9e8f3;
+
     animation: aparecer 4s ease forwards;
 }
 
@@ -159,24 +171,35 @@ body {
 
 .boton {
     margin-top: 35px;
+
     padding: 16px 32px;
+
     border: 1px solid rgba(255,255,255,.5);
     border-radius: 50px;
+
     background: rgba(255, 70, 160, .15);
+
     color: white;
+
     font-size: 17px;
     letter-spacing: 2px;
+
     cursor: pointer;
+
     backdrop-filter: blur(10px);
+
     box-shadow:
         0 0 20px rgba(255,70,160,.35),
         inset 0 0 20px rgba(255,255,255,.05);
+
     transition: .4s;
 }
 
 .boton:hover {
     transform: scale(1.08);
+
     background: rgba(255,70,160,.3);
+
     box-shadow:
         0 0 35px rgba(255,70,160,.7);
 }
@@ -186,8 +209,11 @@ body {
 .flotante {
     position: absolute;
     z-index: 5;
+
     pointer-events: none;
-    animation: flotar 6s ease-in-out infinite;
+
+    animation:
+        flotar 6s ease-in-out infinite;
 }
 
 .rosa {
@@ -209,7 +235,6 @@ body {
 .uno {
     left: 7%;
     top: 15%;
-    animation-delay: 0s;
 }
 
 .dos {
@@ -243,16 +268,22 @@ body {
 }
 
 @keyframes flotar {
+
     0%, 100% {
-        transform: translateY(0) rotate(-5deg);
+        transform:
+            translateY(0)
+            rotate(-5deg);
     }
 
     50% {
-        transform: translateY(-25px) rotate(8deg);
+        transform:
+            translateY(-25px)
+            rotate(8deg);
     }
 }
 
 @keyframes latido {
+
     0%, 100% {
         transform: scale(1);
     }
@@ -263,6 +294,7 @@ body {
 }
 
 @keyframes aparecer {
+
     from {
         opacity: 0;
         transform: translateY(25px);
@@ -275,6 +307,7 @@ body {
 }
 
 @keyframes titulo {
+
     from {
         opacity: 0;
         transform: scale(.8);
@@ -291,14 +324,22 @@ body {
 .petalo {
     position: fixed;
     top: -50px;
+
     z-index: 20;
+
     pointer-events: none;
-    animation: caer linear infinite;
+
+    animation:
+        caer linear infinite;
 }
 
 @keyframes caer {
+
     0% {
-        transform: translateY(-50px) rotate(0deg);
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
         opacity: 0;
     }
 
@@ -307,10 +348,323 @@ body {
     }
 
     100% {
-        transform: translateY(110vh) translateX(120px) rotate(360deg);
+        transform:
+            translateY(110vh)
+            translateX(120px)
+            rotate(360deg);
+
         opacity: .1;
     }
 }
+
+/* SEGUNDA PARTE */
+
+.regalo {
+    display: none;
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 80px 20px 120px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 30%, rgba(150, 40, 130, .28), transparent 30%),
+        radial-gradient(circle at 20% 70%, rgba(50, 30, 130, .25), transparent 30%),
+        linear-gradient(180deg, #05020e, #10051c, #03010a);
+}
+
+.regalo.activo {
+    display: block;
+
+    animation:
+        aparecerRegalo 2s ease forwards;
+}
+
+@keyframes aparecerRegalo {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.seccion {
+    position: relative;
+
+    max-width: 700px;
+
+    margin: 0 auto 100px;
+
+    z-index: 10;
+}
+
+.seccion h2 {
+
+    font-size: clamp(32px, 8vw, 55px);
+
+    margin-bottom: 25px;
+
+    color: #fff;
+
+    text-shadow:
+        0 0 15px rgba(255,90,190,.7),
+        0 0 40px rgba(180,50,160,.5);
+}
+
+.seccion p {
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    color: #f8e8f3;
+}
+
+/* TARJETAS */
+
+.tarjetas {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(140px, 1fr));
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.tarjeta {
+
+    padding: 22px 15px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid rgba(255,150,220,.25);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 20px rgba(255,70,170,.12);
+
+    transition: .4s;
+}
+
+.tarjeta:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.03);
+
+    box-shadow:
+        0 0 30px rgba(255,70,170,.4);
+}
+
+.numero {
+
+    display: block;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+/* CARTA */
+
+.carta {
+
+    padding: 30px 25px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid rgba(255,180,230,.25);
+
+    box-shadow:
+        0 0 40px rgba(255,60,160,.15);
+
+    backdrop-filter: blur(12px);
+
+    text-align: left;
+}
+
+.carta p {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    margin-bottom: 18px;
+}
+
+/* FUTURO */
+
+.futuro {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.plan {
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    font-size: 18px;
+}
+
+/* BOTÓN FINAL */
+
+.boton-final {
+
+    margin-top: 20px;
+
+    padding: 18px 35px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4fa3,
+            #b94cff,
+            #ff4fa3
+        );
+
+    background-size: 200%;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 30px rgba(255,70,170,.5);
+
+    animation:
+        brilloBoton 3s linear infinite;
+}
+
+@keyframes brilloBoton {
+
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+/* SORPRESA */
+
+.sorpresa {
+
+    display: none;
+
+    margin-top: 35px;
+
+    font-size: clamp(25px, 7vw, 45px);
+
+    line-height: 1.5;
+
+    color: white;
+
+    text-shadow:
+        0 0 15px #ff6fbd,
+        0 0 40px #c04cff;
+
+    animation:
+        sorpresa 2s ease forwards;
+}
+
+.sorpresa.visible {
+    display: block;
+}
+
+@keyframes sorpresa {
+
+    from {
+        opacity: 0;
+        transform: scale(.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* CORAZONES */
+
+.corazon-caida {
+
+    position: fixed;
+
+    top: -50px;
+
+    z-index: 50;
+
+    pointer-events: none;
+
+    animation:
+        caerCorazon linear forwards;
+}
+
+@keyframes caerCorazon {
+
+    0% {
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+/* MÓVIL */
 
 @media (max-width: 600px) {
 
@@ -339,27 +693,49 @@ body {
     .flor {
         font-size: 30px;
     }
+
+    .regalo {
+        padding-top: 60px;
+    }
+
+    .carta {
+        padding: 25px 20px;
+    }
+
+    .carta p {
+        font-size: 17px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ============================= -->
+<!-- PORTADA ORIGINAL -->
+<!-- ============================= -->
+
 <section class="universo">
 
     <div class="estrellas"></div>
+
     <div class="luz"></div>
 
     <!-- DECORACIÓN -->
 
     <div class="flotante rosa uno">🌹</div>
+
     <div class="flotante globo dos">🎈</div>
+
     <div class="flotante flor tres">🌸</div>
+
     <div class="flotante corazon-flotante cuatro">💗</div>
+
     <div class="flotante rosa cinco">🌹</div>
+
     <div class="flotante flor seis">🌷</div>
 
-    <!-- MENSAJE PRINCIPAL -->
+    <!-- MENSAJE -->
 
     <div class="contenido">
 
@@ -376,34 +752,328 @@ body {
         </span>
 
         <p class="mensaje">
+
             Hay algo que preparé especialmente para ti...
+
             <br><br>
+
             Porque hoy no es un día cualquiera.
+
             <br><br>
+
             Hoy celebramos la vida de la persona
             que hace mi mundo mucho más bonito.
+
         </p>
 
-        <button class="boton" onclick="abrirRegalo()">
+        <button
+            class="boton"
+            onclick="abrirRegalo()">
+
             💌 ABRIR MI REGALO
+
         </button>
 
     </div>
 
 </section>
 
+
+<!-- ============================= -->
+<!-- REGALO -->
+<!-- ============================= -->
+
+<section
+    id="regalo"
+    class="regalo">
+
+    <div class="estrellas"></div>
+
+    <!-- NUESTRA HISTORIA -->
+
+    <div class="seccion">
+
+        <h2>
+            Nuestra historia ❤️
+        </h2>
+
+        <p>
+
+            De todas las casualidades que pudieron
+            ocurrir en mi vida, una de las más bonitas
+            fue encontrarte a ti.
+
+            <br><br>
+
+            Desde que llegaste, hay momentos que tienen
+            otro significado, canciones que me recuerdan
+            a ti y recuerdos que quiero guardar para
+            siempre.
+
+            <br><br>
+
+            Y esto apenas es una pequeña parte de todo
+            lo que todavía nos queda por vivir. 🌹
+
+        </p>
+
+    </div>
+
+
+    <!-- 10 RAZONES -->
+
+    <div class="seccion">
+
+        <h2>
+            10 razones por las que te amo 💗
+        </h2>
+
+        <div class="tarjetas">
+
+            <div class="tarjeta">
+                <span class="numero">01 ❤️</span>
+                Tu sonrisa
+            </div>
+
+            <div class="tarjeta">
+                <span class="numero">02 🌹</span>
+                Tu forma de ser
+            </div>
+
+            <div class="tarjeta">
+                <span class="numero">03 ✨</span>
+                Cómo me haces sentir
+            </div>
+
+            <div class="tarjeta">
+                <span class="numero">04 💕</span>
+                Cada conversación
+            </div>
+
+            <div class="tarjeta">
+                <span class="numero">05 🌸</span>
+                Tus pequeños detalles
+            </div>
+
+            <div class="tarjeta">
+                <span class="numero">06 🥰</span>
+                Tus ocurrencias
+            </div>
+
+            <div class="tarjeta">
+                <span class="numero">07 💗</span>
+                Los recuerdos contigo
+            </div>
+
+            <div class="tarjeta">
+                <span class="numero">08 🌙</span>
+                La tranquilidad que me das
+            </div>
+
+            <div class="tarjeta">
+                <span class="numero">09 💫</span>
+                Todo lo que eres
+            </div>
+
+            <div class="tarjeta">
+                <span class="numero">10 ❤️</span>
+                Simplemente tú
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CARTA -->
+
+    <div class="seccion">
+
+        <h2>
+            Una carta para ti 💌
+        </h2>
+
+        <div class="carta">
+
+            <p>
+                Mi amor:
+            </p>
+
+            <p>
+                Hoy es un día especial porque nació una
+                de las personas más importantes de mi vida:
+                tú. ❤️
+            </p>
+
+            <p>
+                Quiero que sepas que no solo estoy celebrando
+                tu cumpleaños; estoy celebrando que existas,
+                que hayas llegado a mi vida y que podamos
+                compartir tantos momentos juntos.
+            </p>
+
+            <p>
+                A veces siento que las palabras no son
+                suficientes para explicar todo lo que
+                significas para mí.
+            </p>
+
+            <p>
+                Gracias por cada sonrisa, cada conversación,
+                cada momento bonito y también por todos esos
+                pequeños detalles que quizá para ti parecen
+                insignificantes, pero que yo guardo con
+                muchísimo cariño.
+            </p>
+
+            <p>
+                Me encanta poder crear recuerdos contigo.
+                Me encanta pensar en todo lo que todavía nos
+                falta vivir, todos los lugares que podemos
+                conocer, todas las fotos que todavía nos
+                faltan tomar y todas las historias que
+                todavía tenemos que escribir.
+            </p>
+
+            <p>
+                En tu cumpleaños quiero desearte muchísimo
+                más que felicidad. Quiero que cumplas tus
+                sueños, que nunca dejes de creer en ti y
+                que siempre tengas motivos para sonreír.
+            </p>
+
+            <p>
+                Y si me permites pedir un deseo para mí,
+                sería poder seguir estando presente en
+                muchos de tus próximos cumpleaños. ❤️
+            </p>
+
+            <p>
+                Feliz cumpleaños, mi amorcito 🥳🥺😍
+            </p>
+
+            <p>
+                Gracias por existir mi amor 😍 ❤️ 
+                <br>
+                Gracias por ser tú mi vidita 🥺❤️
+                <br>
+                Y gracias por formar parte de mi vida 🥺🥰
+            </p>
+
+            <p>
+                Te amo muchísimo. ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FUTURO -->
+
+    <div class="seccion">
+
+        <h2>
+            Lo que todavía nos falta vivir ✨
+        </h2>
+
+        <div class="futuro">
+
+            <div class="plan">
+                🌎 Conocer lugares juntos
+            </div>
+
+            <div class="plan">
+                📸 Llenar nuestra galería de recuerdos
+            </div>
+
+            <div class="plan">
+                🌙 Vivir noches inolvidables
+            </div>
+
+            <div class="plan">
+                🥰 Crear nuevas historias
+            </div>
+
+            <div class="plan">
+                ❤️ Celebrar muchos cumpleaños más
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL -->
+
+    <div class="seccion">
+
+        <h2>
+            Y todavía falta algo... 🎁
+        </h2>
+
+        <p>
+            Hay una última sorpresa que quiero
+            dejarte.
+        </p>
+
+        <button
+            class="boton-final"
+            onclick="mostrarSorpresa()">
+
+            💖 ABRIR LA ÚLTIMA SORPRESA
+
+        </button>
+
+        <div
+            id="sorpresa"
+            class="sorpresa">
+
+            Feliz cumpleaños, mi amorcito. ❤️
+
+            <br><br>
+
+            Si pudiera elegir nuevamente,
+            te volvería a elegir a ti mi vida 
+
+            <br><br>
+
+            🌹 Te amo mi amorcito 🌹
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <script>
+
+/* ============================= */
+/* PÉTALOS */
+/* ============================= */
 
 function crearPetalo() {
 
-    const petalo = document.createElement("div");
+    const petalo =
+        document.createElement("div");
 
     petalo.className = "petalo";
 
-    const flores = ["🌹", "🌸", "🌺", "🌷", "💗"];
+    const flores = [
+        "🌹",
+        "🌸",
+        "🌺",
+        "🌷",
+        "💗"
+    ];
 
     petalo.innerHTML =
-        flores[Math.floor(Math.random() * flores.length)];
+        flores[
+            Math.floor(
+                Math.random() * flores.length
+            )
+        ];
 
     petalo.style.left =
         Math.random() * 100 + "vw";
@@ -417,19 +1087,138 @@ function crearPetalo() {
     document.body.appendChild(petalo);
 
     setTimeout(() => {
+
         petalo.remove();
+
     }, 12000);
 }
 
-setInterval(crearPetalo, 450);
+setInterval(
+    crearPetalo,
+    450
+);
+
+
+/* ============================= */
+/* ABRIR REGALO */
+/* ============================= */
 
 function abrirRegalo() {
 
-    alert("❤️ Mi amor, esto apenas comienza...");
+    const regalo =
+        document.getElementById("regalo");
+
+    regalo.classList.add("activo");
+
+    setTimeout(() => {
+
+        regalo.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 200);
+
+    crearExplosionCorazones();
+
+}
+
+
+/* ============================= */
+/* CORAZONES */
+/* ============================= */
+
+function crearCorazon() {
+
+    const corazon =
+        document.createElement("div");
+
+    corazon.className =
+        "corazon-caida";
+
+    const corazones = [
+        "❤️",
+        "💗",
+        "💖",
+        "💕",
+        "💓",
+        "💞"
+    ];
+
+    corazon.innerHTML =
+        corazones[
+            Math.floor(
+                Math.random() *
+                corazones.length
+            )
+        ];
+
+    corazon.style.left =
+        Math.random() * 100 + "vw";
+
+    corazon.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    corazon.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+
+        corazon.remove();
+
+    }, 10000);
+}
+
+function crearExplosionCorazones() {
+
+    for (
+        let i = 0;
+        i < 35;
+        i++
+    ) {
+
+        setTimeout(
+            crearCorazon,
+            i * 80
+        );
+
+    }
+
+}
+
+
+/* ============================= */
+/* SORPRESA FINAL */
+/* ============================= */
+
+function mostrarSorpresa() {
+
+    const sorpresa =
+        document.getElementById(
+            "sorpresa"
+        );
+
+    sorpresa.classList.add(
+        "visible"
+    );
+
+    for (
+        let i = 0;
+        i < 50;
+        i++
+    ) {
+
+        setTimeout(
+            crearCorazon,
+            i * 60
+        );
+
+    }
 
 }
 
 </script>
 
 </body>
-</html>
+    </html>
