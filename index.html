@@ -706,10 +706,85 @@ body {
         font-size: 17px;
     }
 }
+
+/* ============================= */
+/* MÚSICA AGREGADA */
+/* ============================= */
+
+.musica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.boton-musica {
+    border: 1px solid rgba(255, 180, 220, 0.6);
+    border-radius: 50px;
+    background: rgba(20, 5, 30, 0.85);
+    color: #ffd6ec;
+    padding: 12px 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow:
+        0 0 10px rgba(255, 120, 200, 0.5),
+        0 0 25px rgba(255, 80, 180, 0.25);
+    backdrop-filter: blur(8px);
+    transition: 0.3s ease;
+}
+
+.boton-musica:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 15px rgba(255, 150, 220, 0.8),
+        0 0 35px rgba(255, 80, 180, 0.4);
+}
+
+@media (max-width: 600px) {
+
+    .musica {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .boton-musica {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+}
+
 </style>
 </head>
 
 <body>
+
+<!-- ============================= -->
+<!-- MÚSICA AGREGADA -->
+<!-- ============================= -->
+
+<div class="musica">
+
+    <audio id="cancion">
+
+        <source
+            src="paulyudin-romantic-love-piano-valentines-day-164819.mp3"
+            type="audio/mpeg">
+
+        Tu navegador no puede reproducir esta canción.
+
+    </audio>
+
+    <button
+        class="boton-musica"
+        onclick="controlarMusica()">
+
+        🎵 Escuchar nuestra canción ❤️
+
+    </button>
+
+</div>
+
 
 <!-- ============================= -->
 <!-- PORTADA ORIGINAL -->
@@ -1118,107 +1193,75 @@ function abrirRegalo() {
 
     }, 200);
 
-    crearExplosionCorazones();
+crearExplosionCorazones()
+/*
+CORAZONES */
+function crearCorazon()
+const corazon =
+document.createElement("div");
+corazon.className
+"corazon-caida";
+const corazones =
+];
+corazon.innerHTML =
+corazones[
+Math.floor(
+Math.random()
+corazones.length
+corazon.style.left =
+Math.random()* 100 +"vw";
+corazon.style.fontSize =
+(15 + Math.random()* 25)+"Px";
+corazon.style.animationDuration
+(4 + Math.random()* 5)+"s";
+document.body.appendChild(corazon);
+setTimeout(()=>
+corazon.remove();
+}，10000)；
+function crearExplosionCoraze;es(){
 
-}
-
-
-/* ============================= */
-/* CORAZONES */
-/* ============================= */
-
-function crearCorazon() {
-
-    const corazon =
-        document.createElement("div");
-
-    corazon.className =
-        "corazon-caida";
-
-    const corazones = [
-        "❤️",
-        "💗",
-        "💖",
-        "💕",
-        "💓",
-        "💞"
-    ];
-
-    corazon.innerHTML =
-        corazones[
-            Math.floor(
-                Math.random() *
-                corazones.length
-            )
-        ];
-
-    corazon.style.left =
-        Math.random() * 100 + "vw";
-
-    corazon.style.fontSize =
-        (15 + Math.random() * 25) + "px";
-
-    corazon.style.animationDuration =
-        (4 + Math.random() * 5) + "s";
-
-    document.body.appendChild(corazon);
-
-    setTimeout(() => {
-
-        corazon.remove();
-
-    }, 10000);
-}
-
-function crearExplosionCorazones() {
-
-    for (
-        let i = 0;
-        i < 35;
-        i++
-    ) {
-
-        setTimeout(
-            crearCorazon,
-            i * 80
-        );
-
-    }
-
-}
-
-
-/* ============================= */
-/* SORPRESA FINAL */
-/* ============================= */
-
-function mostrarSorpresa() {
-
-    const sorpresa =
-        document.getElementById(
-            "sorpresa"
-        );
-
-    sorpresa.classList.add(
-        "visible"
-    );
-
-    for (
-        let i = 0;
-        i < 50;
-        i++
-    ) {
-
-        setTimeout(
-            crearCorazon,
-            i * 60
-        );
-
-    }
-
-}
-
+for
+let i = 0;
+i < 35;
+i++
+setTimeout(
+crearCorazon,
+i *80
+SORPRESA FINAL */
+function mostrarSorpresa(){
+const sorpresa
+document.getElementById(
+"sorpresa"
+sorpresa.classList.add(
+);
+"visible"
+for (
+let i = 0;
+i< 50;
+）{
+i++
+setTimeout(
+crearCorazon,
+);
+60
+MÚSICA AGREGADA */
+const cancion =
+document.getElementById("cancion");
+const botonMusica =
+document.querySelector(".boton-musica");
+function controlarMusica(){
+if (cancion.paused){
+cancion.play();
+botonMusica.innerHTML =
+Pausar nuestra canción
+} else {
+cancion.pause();
+botonMusica.innerHTML =
+Escuchar nuestra canción
+cancion.addEventListener(
+'ended",
+botonMusica.innerHTML =
+Escuchar nuestra canción
 </script>
-
 </body>
-    </html>
+</html>
