@@ -779,7 +779,7 @@ body {
         class="boton-musica"
         onclick="controlarMusica()">
 
-        🎵 Escuchar nuestra canción ❤️
+        🎵 ❤️
 
     </button>
 
@@ -1120,8 +1120,6 @@ body {
     </div>
 
 </section>
-
-
 <script>
 
 /* ============================= */
@@ -1193,75 +1191,145 @@ function abrirRegalo() {
 
     }, 200);
 
-crearExplosionCorazones()
-/*
-CORAZONES */
-function crearCorazon()
-const corazon =
-document.createElement("div");
-corazon.className
-"corazon-caida";
-const corazones =
-];
-corazon.innerHTML =
-corazones[
-Math.floor(
-Math.random()
-corazones.length
-corazon.style.left =
-Math.random()* 100 +"vw";
-corazon.style.fontSize =
-(15 + Math.random()* 25)+"Px";
-corazon.style.animationDuration
-(4 + Math.random()* 5)+"s";
-document.body.appendChild(corazon);
-setTimeout(()=>
-corazon.remove();
-}，10000)；
-function crearExplosionCoraze;es(){
+    crearExplosionCorazones();
+}
 
-for
-let i = 0;
-i < 35;
-i++
-setTimeout(
-crearCorazon,
-i *80
-SORPRESA FINAL */
-function mostrarSorpresa(){
-const sorpresa
-document.getElementById(
-"sorpresa"
-sorpresa.classList.add(
-);
-"visible"
-for (
-let i = 0;
-i< 50;
-）{
-i++
-setTimeout(
-crearCorazon,
-);
-60
-MÚSICA AGREGADA */
+
+/* ============================= */
+/* CORAZONES */
+/* ============================= */
+
+function crearCorazon() {
+
+    const corazon =
+        document.createElement("div");
+
+    corazon.className =
+        "corazon-caida";
+
+    const corazones = [
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💘",
+        "💝"
+    ];
+
+    corazon.innerHTML =
+        corazones[
+            Math.floor(
+                Math.random() * corazones.length
+            )
+        ];
+
+    corazon.style.left =
+        Math.random() * 100 + "vw";
+
+    corazon.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    corazon.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+
+        corazon.remove();
+
+    }, 10000);
+}
+
+
+function crearExplosionCorazones() {
+
+    for (
+        let i = 0;
+        i < 35;
+        i++
+    ) {
+
+        setTimeout(
+            crearCorazon,
+            i * 80
+        );
+
+    }
+
+}
+
+
+/* ============================= */
+/* SORPRESA FINAL */
+/* ============================= */
+
+function mostrarSorpresa() {
+
+    const sorpresa =
+        document.getElementById("sorpresa");
+
+    sorpresa.classList.add("visible");
+
+    for (
+        let i = 0;
+        i < 50;
+        i++
+    ) {
+
+        setTimeout(
+            crearCorazon,
+            i * 60
+        );
+
+    }
+
+}
+
+
+/* ============================= */
+/* MÚSICA AGREGADA */
+/* ============================= */
+
 const cancion =
-document.getElementById("cancion");
+    document.getElementById("cancion");
+
 const botonMusica =
-document.querySelector(".boton-musica");
-function controlarMusica(){
-if (cancion.paused){
-cancion.play();
-botonMusica.innerHTML =
-Pausar nuestra canción
-} else {
-cancion.pause();
-botonMusica.innerHTML =
-Escuchar nuestra canción
+    document.querySelector(".boton-musica");
+
+
+function controlarMusica() {
+
+    if (cancion.paused) {
+
+        cancion.play();
+
+        botonMusica.innerHTML =
+            "⏸️ ❤️";
+
+    } else {
+
+        cancion.pause();
+
+        botonMusica.innerHTML =
+            "🎵 ❤️";
+
+    }
+
+}
+
+
 cancion.addEventListener(
-'ended",
-botonMusica.innerHTML =
-Escuchar nuestra canción
+    "ended",
+    () => {
+
+        botonMusica.innerHTML =
+            "🎵 ❤️";
+
+    }
+);
+
 </script>
+
 </body>
 </html>
